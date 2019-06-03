@@ -2,14 +2,16 @@ package sdk
 
 import "fmt"
 
+// Context .
 type Context interface {
 	PrintLog(string)
 }
 
-type context struct {
+// Plugin .
+type Plugin struct {
 }
 
 // PrintLog print log to casa gateway
-func (c *context) PrintLog(str string) {
+func (p Plugin) PrintLog(str string) {
 	fmt.Println(str)
 }
