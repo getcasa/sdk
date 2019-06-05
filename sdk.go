@@ -2,6 +2,27 @@ package sdk
 
 import "fmt"
 
+type Action struct {
+	Name        string
+	Description string
+}
+
+type Trigger struct {
+	Name        string
+	Description string
+}
+
+type Configuration struct {
+	Name        string
+	Version     string
+	Author      string
+	Description string
+	Main        string
+	FuncData    string
+	Triggers    []Trigger
+	Actions     []Action
+}
+
 // Context .
 type Context interface {
 	PrintLog(string)
