@@ -2,12 +2,12 @@ package sdk
 
 import "fmt"
 
-type Action struct {
+type Trigger struct {
 	Name        string
 	Description string
 }
 
-type Trigger struct {
+type Action struct {
 	Name        string
 	Description string
 }
