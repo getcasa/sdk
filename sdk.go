@@ -1,15 +1,17 @@
 package sdk
 
-import "fmt"
-
 type Trigger struct {
-	Name        string
-	Description string
+	Name          string
+	Description   string
+	Field         string
+	Type          string
+	Possibilities []string
 }
 
 type Action struct {
 	Name        string
 	Description string
+	Fields      []string
 }
 
 type Configuration struct {
@@ -23,16 +25,8 @@ type Configuration struct {
 	Actions     []Action
 }
 
-// Context .
-type Context interface {
-	PrintLog(string)
-}
-
-// Plugin .
-type Plugin struct {
-}
-
-// PrintLog print log to casa gateway
-func (p Plugin) PrintLog(str string) {
-	fmt.Println(str)
+type OnData struct {
+	Plugin      string
+	TriggerName string
+	Data        interface{}
 }
