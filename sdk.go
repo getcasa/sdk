@@ -2,6 +2,7 @@ package sdk
 
 type Trigger struct {
 	Name          string
+	FieldID       string
 	Description   string
 	Field         string
 	Type          string
