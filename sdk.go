@@ -1,20 +1,30 @@
 package sdk
 
-type Trigger struct {
+// Field
+type Field struct {
 	Name          string
-	FieldID       string
-	Description   string
-	Field         string
+	Direct        bool
 	Type          string
 	Possibilities []string
+	Config        bool
 }
 
+// Trigger struct define trigger necessary datas
+type Trigger struct {
+	Name        string
+	FieldID     string
+	Description string
+	Fields      []Field
+}
+
+// Action struct define action necessary datas
 type Action struct {
 	Name        string
 	Description string
-	Fields      []string
+	Fields      []Field
 }
 
+// Configuration struct define configuration of plugin
 type Configuration struct {
 	Name        string
 	Version     string
@@ -26,6 +36,7 @@ type Configuration struct {
 	Actions     []Action
 }
 
+// OnData struct
 type OnData struct {
 	Plugin      string
 	TriggerName string
