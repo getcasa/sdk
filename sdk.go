@@ -32,6 +32,7 @@ type Configuration struct {
 	Description string
 	Main        string
 	FuncData    string
+	Discover    bool
 	Triggers    []Trigger
 	Actions     []Action
 }
