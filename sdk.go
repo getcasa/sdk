@@ -1,6 +1,6 @@
 package sdk
 
-// Field
+// Field struct
 type Field struct {
 	Name          string
 	Direct        bool
@@ -30,9 +30,6 @@ type Configuration struct {
 	Version     string
 	Author      string
 	Description string
-	Main        string
-	FuncData    string
-	Discover    bool
 	Triggers    []Trigger
 	Actions     []Action
 }
@@ -44,6 +41,7 @@ type OnData struct {
 	Data        interface{}
 }
 
+// Device struct
 type Device struct {
 	Name         string `db:"name" json:"name"`
 	PhysicalID   string `db:"physical_id" json:"physicalId"`
