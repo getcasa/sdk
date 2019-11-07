@@ -88,7 +88,7 @@ func OnData() interface{} {
 }
 
 // CallAction call functions from actions
-func CallAction(name string, params []byte) {
+func CallAction(physicalID string, name string, params []byte, config []byte) {
 	if string(params) == "" {
 		fmt.Println("Params must be provided")
 		return

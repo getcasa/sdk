@@ -43,3 +43,10 @@ type OnData struct {
 	TriggerName string
 	Data        interface{}
 }
+
+type Device struct {
+	Name         string `db:"name" json:"name"`
+	PhysicalID   string `db:"physical_id" json:"physicalId"`
+	PhysicalName string `db:"physical_name" json:"physicalName"`
+	Plugin       string `db:"plugin" json:"plugin"`
+}
