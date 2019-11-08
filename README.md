@@ -22,12 +22,9 @@ var Config = sdk.Configuration{
 	Author:      "John Doe",
 	Description: "A little example",
 	Main:        "",
-	FuncData:    "OnData",
-	Discover:    true,
 	Triggers:    []sdk.Trigger{
     sdk.Trigger{
 			Name:    "temperature",
-			FieldID: "ID",
 			Fields: []sdk.Field{
 				sdk.Field{
 					Name:          "temp",
@@ -74,7 +71,7 @@ type Params struct {
 }
 
 // OnData get data from source
-func OnData() interface{} {
+func OnData() []sdk.Data {
   // wait data from ws, udp or whatever
   
   // switch in case of multiple devices

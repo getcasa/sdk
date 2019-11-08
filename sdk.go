@@ -12,7 +12,6 @@ type Field struct {
 // Trigger struct define trigger necessary datas
 type Trigger struct {
 	Name        string
-	FieldID     string
 	Description string
 	Fields      []Field
 }
@@ -34,11 +33,21 @@ type Configuration struct {
 	Actions     []Action
 }
 
-// OnData struct
-type OnData struct {
-	Plugin      string
-	TriggerName string
-	Data        interface{}
+// Data struct
+type Data struct {
+	Plugin       string
+	PhysicalName string //Model (ex: switch)
+	PhysicalID   string
+	Data         interface{}
+	Values       []Value
+}
+
+// Value struct
+type Value struct {
+	Name  string
+	Value []byte
+	Type  string //string, int, bool
+
 }
 
 // Device struct
@@ -47,4 +56,24 @@ type Device struct {
 	PhysicalID   string `db:"physical_id" json:"physicalId"`
 	PhysicalName string `db:"physical_name" json:"physicalName"`
 	Plugin       string `db:"plugin" json:"plugin"`
+}
+
+// FindTriggerFromName find trigger with name trigger
+func FindTriggerFromName(triggers []Trigger, name string) Trigger {
+	for _, trigger := range triggers {
+		if trigger.Name == name {
+			return trigger
+		}
+	}
+	return Trigger{}
+}
+
+// FindValueFromName find trigger with name trigger
+func FindValueFromName(values []Value, name string) Value {
+	for _, value := range values {
+		if value.Name == name {
+			return value
+		}
+	}
+	return Value{}
 }
