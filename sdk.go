@@ -53,6 +53,7 @@ type Value struct {
 // Device struct
 type Device struct {
 	Name         string `db:"name" json:"name"`
+	GatewayID    string `db:"gateway_id" json:"gatewayId"`
 	PhysicalID   string `db:"physical_id" json:"physicalId"`
 	PhysicalName string `db:"physical_name" json:"physicalName"`
 	Plugin       string `db:"plugin" json:"plugin"`
