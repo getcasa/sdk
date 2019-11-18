@@ -9,19 +9,28 @@ type Field struct {
 	Config        bool
 }
 
-// Trigger struct define trigger necessary datas
+// Trigger struct
 type Trigger struct {
-	Name        string
-	Description string
-	Default     bool
-	Fields      []Field
+	Name          string
+	Direct        bool
+	Type          string
+	Possibilities []string
+}
+
+// Device struct define Device necessary datas
+type Device struct {
+	Name           string
+	Description    string
+	DefaultTrigger string
+	DefaultAction  string
+	Triggers       []Trigger
+	Actions        []string
 }
 
 // Action struct define action necessary datas
 type Action struct {
 	Name        string
 	Description string
-	Default     bool
 	Fields      []Field
 }
 
@@ -31,7 +40,7 @@ type Configuration struct {
 	Version     string
 	Author      string
 	Description string
-	Triggers    []Trigger
+	Devices     []Device
 	Actions     []Action
 }
 
@@ -52,8 +61,8 @@ type Value struct {
 
 }
 
-// Device struct
-type Device struct {
+// DiscoveredDevice struct define discovered device
+type DiscoveredDevice struct {
 	Name         string `db:"name" json:"name"`
 	GatewayID    string `db:"gateway_id" json:"gatewayId"`
 	PhysicalID   string `db:"physical_id" json:"physicalId"`
@@ -61,14 +70,14 @@ type Device struct {
 	Plugin       string `db:"plugin" json:"plugin"`
 }
 
-// FindTriggerFromName find trigger with name trigger
-func FindTriggerFromName(triggers []Trigger, name string) Trigger {
-	for _, trigger := range triggers {
-		if trigger.Name == name {
-			return trigger
+// FindDevicesFromName find trigger with name trigger
+func FindDevicesFromName(devices []Device, name string) Device {
+	for _, device := range devices {
+		if device.Name == name {
+			return device
 		}
 	}
-	return Trigger{}
+	return Device{}
 }
 
 // FindValueFromName find trigger with name trigger
