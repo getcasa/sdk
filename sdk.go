@@ -13,6 +13,7 @@ type Field struct {
 type Trigger struct {
 	Name        string
 	Description string
+	Default     bool
 	Fields      []Field
 }
 
@@ -20,6 +21,7 @@ type Trigger struct {
 type Action struct {
 	Name        string
 	Description string
+	Default     bool
 	Fields      []Field
 }
 
