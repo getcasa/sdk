@@ -2,62 +2,62 @@ package sdk
 
 // Field struct
 type Field struct {
-	Name          string
-	Direct        bool
-	Type          string
-	Possibilities []string
-	Config        bool
+	Name          string   `json:"name"`
+	Direct        bool     `json:"direct"`
+	Type          string   `json:"type"`
+	Possibilities []string `json:"possibilities"`
+	Config        bool     `json:"config"`
 }
 
 // Trigger struct
 type Trigger struct {
-	Name          string
-	Direct        bool
-	Type          string
-	Possibilities []string
+	Name          string   `json:"name"`
+	Direct        bool     `json:"direct"`
+	Type          string   `json:"type"`
+	Possibilities []string `json:"possibilities"`
 }
 
 // Device struct define Device necessary datas
 type Device struct {
-	Name           string
-	Description    string
-	DefaultTrigger string
-	DefaultAction  string
-	Triggers       []Trigger
-	Actions        []string
+	Name           string    `json:"name"`
+	Description    string    `json:"description"`
+	DefaultTrigger string    `json:"defaultTrigger"`
+	DefaultAction  string    `json:"defaultAction"`
+	Triggers       []Trigger `json:"triggers"`
+	Actions        []string  `json:"actions"`
 }
 
 // Action struct define action necessary datas
 type Action struct {
-	Name        string
-	Description string
-	Fields      []Field
+	Name        string  `json:"name"`
+	Description string  `json:"description"`
+	Fields      []Field `json:"fields"`
 }
 
 // Configuration struct define configuration of plugin
 type Configuration struct {
-	Name        string
-	Version     string
-	Author      string
-	Description string
-	Devices     []Device
-	Actions     []Action
+	Name        string   `json:"name"`
+	Version     string   `json:"version"`
+	Author      string   `json:"author"`
+	Description string   `json:"description"`
+	Devices     []Device `json:"devices"`
+	Actions     []Action `json:"actions"`
 }
 
 // Data struct
 type Data struct {
-	Plugin       string
-	PhysicalName string //Model (ex: switch)
-	PhysicalID   string
-	Data         interface{}
-	Values       []Value
+	Plugin       string      `json:"plugin"`
+	PhysicalName string      `json:"physicalName"` //Model (ex: switch)
+	PhysicalID   string      `json:"physicalId"`
+	Data         interface{} `json:"data"`
+	Values       []Value     `json:"values"`
 }
 
 // Value struct
 type Value struct {
-	Name  string
-	Value []byte
-	Type  string //string, int, bool
+	Name  string `json:"name"`
+	Value []byte `json:"value"`
+	Type  string `json:"type"` //string, int, bool
 
 }
 
