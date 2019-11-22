@@ -3,15 +3,19 @@ package sdk
 // Field struct
 type Field struct {
 	Name          string   `json:"name"`
+	Description   string   `json:"description"`
 	Direct        bool     `json:"direct"`
 	Type          string   `json:"type"`
 	Possibilities []string `json:"possibilities"`
+	Min           int      `json:"min"`
+	Max           int      `json:"max"`
 	Config        bool     `json:"config"`
 }
 
 // Trigger struct
 type Trigger struct {
 	Name          string   `json:"name"`
+	Description   string   `json:"description"`
 	Direct        bool     `json:"direct"`
 	Type          string   `json:"type"`
 	Possibilities []string `json:"possibilities"`
@@ -19,12 +23,20 @@ type Trigger struct {
 
 // Device struct define Device necessary datas
 type Device struct {
-	Name           string    `json:"name"`
-	Description    string    `json:"description"`
-	DefaultTrigger string    `json:"defaultTrigger"`
-	DefaultAction  string    `json:"defaultAction"`
-	Triggers       []Trigger `json:"triggers"`
-	Actions        []string  `json:"actions"`
+	Name           string         `json:"name"`
+	Description    string         `json:"description"`
+	DefaultTrigger string         `json:"defaultTrigger"`
+	DefaultAction  string         `json:"defaultAction"`
+	Config         []DeviceConfig `json:"config"`
+	Triggers       []Trigger      `json:"triggers"`
+	Actions        []string       `json:"actions"`
+}
+
+// DeviceConfig struct define device's configuration
+type DeviceConfig struct {
+	Name      string
+	Descriton string
+	Type      string
 }
 
 // Action struct define action necessary datas
@@ -40,6 +52,7 @@ type Configuration struct {
 	Version     string   `json:"version"`
 	Author      string   `json:"author"`
 	Description string   `json:"description"`
+	Discover    bool     `json:"discover"`
 	Devices     []Device `json:"devices"`
 	Actions     []Action `json:"actions"`
 }
